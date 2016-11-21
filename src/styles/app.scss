@@ -1,6 +1,5 @@
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import "libs/mdl/material.scss";
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
-body {
-    background: gray;
-}
+@import "/partials/card";
+@import "/partials/login-page";
