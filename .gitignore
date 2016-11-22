@@ -50,3 +50,5 @@ src/routes.js~
 upload_node_modules.sh
 
 npm-debug.log.*
+
+SUMMARY.md
