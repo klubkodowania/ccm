@@ -13,8 +13,8 @@ import cheerio from "cheerio";
 export default function(hash) {
     const files = [
         {
-            input: "src/index.html",
-            outputDir: "dist/",
+            input: "./src/index.html",
+            outputDir: "./dist/",
             bundleName: "main"
         }
     ];
