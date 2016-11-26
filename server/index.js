@@ -1,0 +1,1 @@
+console.log("I am starting point of the CCM server.");
