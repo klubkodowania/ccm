@@ -1,3 +1,14 @@
+@import "partials/_card.scss";
+
 body {
     background: red;
+}
+
+.h1 {
+    color: yellow;
+    @include test;
+}
+
+.test {
+    background: green;
 }
