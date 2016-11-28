@@ -1,14 +1,3 @@
-@import "partials/_card.scss";
-
-body {
-    background: red;
-}
-
-.h1 {
-    color: yellow;
-    @include test;
-}
-
-.test {
-    background: green;
-}
+@import "config/index";
+@import "partials/login-form";
+@import "partials/login-page";

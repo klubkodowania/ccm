@@ -1,0 +1,9 @@
+@import "../config/index";
+
+.login {
+    width: 300px;
+    padding: 30px;
+    @include shadow();
+    margin: 0 auto;
+    background: #f7f7f7;
+}
