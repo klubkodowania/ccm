@@ -8,8 +8,6 @@ import { Router, browserHistory } from "react-router";
 import getRoutes from "./routes";
 import configureStore from "./store/configureStore";
 
-import "./styles/app.scss";
-
 const store = configureStore();
 
 render(
