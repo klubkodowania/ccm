@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import styles from "../styles/app.scss";
 import {LoginForm} from "../login";
+import "../styles/app.scss";
 
 export class App extends Component {
     render() {

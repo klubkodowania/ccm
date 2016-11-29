@@ -7,7 +7,6 @@ export class FormRow extends Component {
         this.state = {
             value: ""
         };
-        console.log(props);
 
         this.setValue = this.setValue.bind(this);
     }
