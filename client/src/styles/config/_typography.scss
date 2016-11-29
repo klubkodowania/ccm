@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&subset=latin-ext');
+
+$t_roboto: "Roboto","Helvetica","Arial",sans-serif;
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+@mixin fontH1() {
+    font: 300 112px/1 $t_roboto;
+    letter-spacing: -0.04em;
+    margin-bottom: 8px;
+}
+
+@mixin fontH2() {
+    font: 400 56px/1.35 $t_roboto;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+}
+
+@mixin fontH3() {
+    font: 400 45px/48px $t_roboto;
+    margin-bottom: 8px;
+}
+
+@mixin fontH4() {
+    font: 400 34px/40px $t_roboto;
+    margin-bottom: 8px;
+}
+
+@mixin fontH5() {
+    font: 400 24px/32px $t_roboto;
+    margin-bottom: 8px;
+}
+
+@mixin fontH6() {
+    font: 500 20px/1 $t_roboto;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+}
+
+@mixin fontP() {
+    font: 400 13px/20px $t_roboto;
+}
+
+@mixin fontT1() {
+    font: 400 16px/1 $t_roboto;
+}

@@ -6,7 +6,7 @@ export class App extends Component {
     render() {
         return (
             <section>
-                <h1 className={styles.h1}>Code Club Manager</h1>
+                <h2 className="login-page_header">Code Club Manager</h2>
                 <LoginForm />
             </section>
         );

@@ -1,0 +1,15 @@
+.form-row {
+    @include gridRow;
+
+    &_label {
+        @include formLabel;
+    }
+
+    &_input {
+        @include formInput;
+    }
+
+    &_validation {
+        @include formValidation;
+    }
+}

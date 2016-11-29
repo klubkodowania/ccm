@@ -1,9 +1,14 @@
 @import "../config/index";
 
-.login {
-    width: 300px;
+.login-form {
+    @include card;
+    width: 400px;
     padding: 30px;
-    @include shadow();
-    margin: 0 auto;
+    margin: 40px auto;
     background: #f7f7f7;
+
+    &_submit {
+        @include button;
+        margin-left: 30%;
+    }
 }

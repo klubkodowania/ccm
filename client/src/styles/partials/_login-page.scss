@@ -1,7 +1,7 @@
-body {
-    background: #fff;
-}
 
-h1 {
-    text-align: center;
+.login-page {
+    &_header {
+        @include fontH3;
+        text-align: center;
+    }
 }

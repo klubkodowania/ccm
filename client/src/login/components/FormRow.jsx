@@ -20,20 +20,24 @@ export class FormRow extends Component {
 
     render() {
         return (
-            <div className="form_row">
-                <label htmlFor={this.props.id}>
+            <div className="form-row">
+                <label
+                    htmlFor={this.props.id}
+                    className="form-row_label"
+                >
                     {this.props.label}
                 </label>
                 <input
                     type={this.props.inputType}
                     id={this.props.id}
+                    className="form-row_input"
                     placeholder={this.props.placeholder}
                     value={this.state.value}
                     onChange={this.setValue}
                     key={this.props.aKey}
                     pattern={this.props.pattern}
                 />
-                <p className="form_row-validation">{this.props.errorLabel}</p>
+                <p className="form-row_validation">{this.props.errorLabel}</p>
             </div>
         );
     }

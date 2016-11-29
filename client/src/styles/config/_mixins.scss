@@ -1,3 +1,67 @@
+@mixin gridRow() {
+    width: 100%;
+    clear: both;
+    float: left;
+}
+
+@mixin card() {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    border-radius: 2px;
+}
+
 @mixin shadow() {
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3)
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+}
+
+@mixin button() {
+    @include shadow;
+    border: none;
+    background-color: $c_accent;
+    font: 500 14px/36px $t_roboto;
+    color: $c_white;
+    border-radius: 2px;
+    position: relative;
+    height: 36px;
+    margin: 0;
+    min-width: 64px;
+    padding: 0 16px;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    overflow: hidden;
+    will-change: box-shadow;
+    transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+
+    &:active {
+        box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2);
+    }
+
+}
+
+@mixin formLabel() {
+    @include fontT1;
+    display: inline-block;
+    width: 30%;
+    text-align: right;
+    padding-right: 10px;
+}
+
+@mixin formInput() {
+    height: 44px;
+    width: 70%;
+    font: 400 16px/1 $t_roboto;
+    border: 1px solid #d9d9d9;
+    border-top-color: #c0c0c0;
+    padding: 0 8px;
+}
+
+@mixin formValidation() {
+    display: block;
+    margin-left: 30%;
+    color: red;
 }
