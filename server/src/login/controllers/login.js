@@ -1,3 +1,7 @@
 module.exports = function(req, res) {
-    res.send(200)
+    if(req.body.username && req.body.password) {
+        res.sendStatus(200);
+    } else {
+        res.sendStatus(401);
+    }
 };
