@@ -1,21 +1,6 @@
 import React, {PropTypes, Component} from "react";
 
 export class FormRow extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            value: ""
-        };
-
-        this.setValue = this.setValue.bind(this);
-    }
-
-    setValue(event) {
-        this.setState({
-            value: event.target.value.trim()
-        });
-    }
 
     render() {
         return (
@@ -31,9 +16,8 @@ export class FormRow extends Component {
                     id={this.props.id}
                     className="form-row_input"
                     placeholder={this.props.placeholder}
-                    value={this.state.value}
-                    onChange={this.setValue}
-                    key={this.props.aKey}
+                    value={this.props.value}
+                    onChange={this.props.change}
                     pattern={this.props.pattern}
                 />
                 <p className="form-row_validation">{this.props.errorLabel}</p>
@@ -47,7 +31,8 @@ FormRow.propTypes = {
     label: PropTypes.string,
     inputType: PropTypes.string.isRequired,
     placeholder: PropTypes.string,
-    aKey: PropTypes.string.isRequired,
+    value: PropTypes.string,
+    change: PropTypes.func,
     errorLabel: PropTypes.string,
     pattern: PropTypes.string
 };
