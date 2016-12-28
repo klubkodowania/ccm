@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "name": "jankowalski",
+        "password": "test",
+        "availableSemesters": [1,2,4]
+    },
+    {
+        "id": 2,
+        "name": "admin",
+        "password": "admin",
+        "availableSemesters": [2,3,4]
+    }
+]
