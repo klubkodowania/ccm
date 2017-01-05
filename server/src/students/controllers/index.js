@@ -1,5 +1,6 @@
-const student = require("./student");
+const {getStudentByName, getStudent} = require("./student");
 
 module.exports = {
-    student
+    getStudentByName,
+    getStudent
 };

@@ -1,27 +1,28 @@
-const {getSemester} = require("../../semesters");
+const {Student} = require("../model");
 
-function getStudent() {
-    return {
-        id: 1,
-        name: "Bob",
-        availableSemesters: [1,2,3]
-    };
+function getStudent(query) {
+    return Student.findOne(query);
 }
 
-function getSemestersForStudent(semestersIDs) {
-    return semestersIDs.map(getSemester);
-}
+function getStudentByName(req, res) {
+    console.log("Looking for student by name: " + req.params.name);
 
-module.exports = function(req, res) {
-    if(!/\d+/.test(req.params.id)) {
-        res.sendStatus(400);
-        return;
-    }
-
-    const student = getStudent();
-    const studentWithSemesters = Object.assign({}, student, {
-        availableSemesters: getSemestersForStudent(student.availableSemesters)
+    getStudent({
+        "name": req.params.name
+    }).then((result) => {
+        res.json({
+            status: "ok",
+            result
+        });
+    }, (error) => {
+        res.status(400).json({
+            status: "error",
+            error
+        });
     });
+}
 
-    res.json(studentWithSemesters);
+module.exports = {
+    getStudent,
+    getStudentByName
 };

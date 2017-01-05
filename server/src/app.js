@@ -2,6 +2,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const multer = require("multer");
 
+const db = require("./db");
+db.connect();
+
 const login = require("./login");
 const students = require("./students");
 
