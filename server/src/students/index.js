@@ -1,6 +1,6 @@
 const routes = require("express").Router();
 const studentsRoutes = require("./routes");
-const {getStudent} = require("./controllers");
+const {getStudent} = require("./getStudent");
 
 routes.use("/", studentsRoutes);
 

@@ -1,11 +1,11 @@
 const chai = require("chai");
 const chaiHttp = require("chai-http");
 const expect = chai.expect;
-const server = require("../../../index");
+const server = require("../../index");
 
 chai.use(chaiHttp);
 
-describe("Students - Controllers - student", ()=> {
+xdescribe("Students - Controller - student", ()=> {
     
     it("should return information about student with provided ID", (done) => {
         chai.request(server)
