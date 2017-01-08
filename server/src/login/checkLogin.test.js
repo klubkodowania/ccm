@@ -2,17 +2,13 @@ const chai = require("chai");
 const sinon = require("sinon");
 const proxyquire = require("proxyquire");
 
-const mockedModule = proxyquire("./checkLogin", {
-    "../students/index": {
-        getStudent: () => Promise.resolve("some response")
-    }
-});
 const expect = chai.expect;
 
 describe("Login - mockedModule", function() {
 
     let response;
     let send;
+    let mockedModule;
 
     beforeEach(() => {
         send = sinon.spy();
@@ -27,11 +23,21 @@ describe("Login - mockedModule", function() {
                 send: send
             };
         });
+
+        mockedModule = proxyquire("./checkLogin", {
+            "../students/index": {
+                getStudent: () => {
+                    return Promise.resolve("some response");
+                }
+            }
+        });
+
     });
 
     afterEach(() => {
         send && send.restore && send.restore();
         response = {};
+        mockedModule = {};
     });
 
     it("should send 401 code if no password was provided", () => {

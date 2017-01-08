@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./src/**/*.test.js",
+    "test": "mocha ./src/tools/testSetup.js ./src/**/*.test.js",
     "start": "nodemon index.js"
   },
   "author": "",
@@ -16,6 +16,7 @@
     "chai-http": "^3.0.0",
     "express": "^4.14.0",
     "mocha": "^3.2.0",
+    "mockgoose": "^6.0.8",
     "mongoose": "^4.7.5",
     "multer": "^1.2.0",
     "node-uuid": "^1.4.7",
