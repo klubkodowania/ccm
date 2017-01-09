@@ -1,7 +1,9 @@
 const {Student} = require("./model");
 
 function getStudent(query) {
-    return Student.findOne(query);
+    return Student
+        .findOne(query)
+        .populate("availableSemesters");
 }
 
 function getStudentById(id) {

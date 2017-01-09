@@ -24,7 +24,7 @@ describe("Login - mockedModule", function() {
             };
         });
 
-        mockedModule = proxyquire("./checkLogin", {
+        mockedModule = proxyquire("./login", {
             "../students/index": {
                 getStudent: () => {
                     return Promise.resolve("some response");
@@ -41,7 +41,7 @@ describe("Login - mockedModule", function() {
     });
 
     it("should send 401 code if no password was provided", () => {
-        mockedModule.checkLogin({
+        mockedModule.login({
             body: {
                 name: "test"
             }
@@ -52,7 +52,7 @@ describe("Login - mockedModule", function() {
     });
 
     it("should send 401 code if no name was provided", () => {
-        mockedModule.checkLogin({
+        mockedModule.login({
             body: {
                 password: "test"
             }
@@ -68,7 +68,7 @@ describe("Login - mockedModule", function() {
                 done();
             }
         });
-        mockedModule.checkLogin({
+        mockedModule.login({
             body: {
                 password: "test",
                 name: "test"

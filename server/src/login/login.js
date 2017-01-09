@@ -1,6 +1,6 @@
 const {getStudent} = require("../students/index");
 
-function checkLogin(req, res) {
+function login(req, res) {
     const {
         name,
         password
@@ -36,5 +36,5 @@ function checkLogin(req, res) {
 }
 
 module.exports = {
-    checkLogin
+    login
 };

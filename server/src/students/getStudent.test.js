@@ -1,40 +1,93 @@
 const chai = require("chai");
-const chaiHttp = require("chai-http");
 const expect = chai.expect;
-const server = require("../../index");
+const sinon = require("sinon");
+const proxyquire = require("proxyquire");
 
-chai.use(chaiHttp);
+describe("Students - getStudent", ()=> {
 
-xdescribe("Students - Controller - student", ()=> {
-    
-    it("should return information about student with provided ID", (done) => {
-        chai.request(server)
-            .get("/students/student/123")
-            .end((error, response) => {
-                expect(response.status).to.equal(200);
-                expect(response.body.id).not.to.equal(undefined);
-                expect(response.body.name).not.to.equal(undefined);
-                expect(response.body.availableSemesters).not.to.equal(undefined);
-                done();
-            });
+    let response;
+    let send;
+    let json;
+    let mockedModule;
+
+    beforeEach(() => {
+        send = sinon.spy();
+        json = sinon.spy();
+
+        response = {
+            status: () => {},
+            json: sinon.spy()
+        };
+
+        sinon.stub(response, "status", () => {
+            return {
+                send,
+                json
+            };
+        });
+
+        mockedModule = proxyquire("./getStudent", {
+            "./model": {
+                Student: {
+                    findOne: () => {
+                        return {
+                            populate: () => Promise.resolve("some response")
+                        }
+                    }
+                }
+            }
+        });
+
     });
 
-    it("should return NOT FOUND status if ID is not provided", (done) => {
-        chai.request(server)
-            .get("/students/student/")
-            .end((error, response) => {
-                expect(response.status).to.equal(404);
-                done();
-            });
+    afterEach(() => {
+        send && send.restore && send.restore();
+        response = {};
+        mockedModule = {};
     });
 
-    it("should return BAD REQUEST status if ID is not a number", (done) => {
-        chai.request(server)
-            .get("/students/student/abc")
-            .end((error, response) => {
-                expect(response.status).to.equal(400);
+    it("should get student by name and returns json if student exists", function(done) {
+        const responseWithDone = Object.assign({}, response, {
+            json: () => {
                 done();
-            });
+            }
+        });
+        mockedModule.getStudentByName({
+            params: {
+                name: "test"
+            }
+        }, responseWithDone);
+    });
+
+    it("should send status 400 if student was not found", function(done) {
+        mockedModule = proxyquire("./getStudent", {
+            "./model": {
+                Student: {
+                    findOne: () => {
+                        return {
+                            populate: () => Promise.reject("error")
+                        }
+                    }
+                }
+            }
+        });
+
+        const responseWithDone = Object.assign({}, response, {
+            status: code => {
+                expect(code).to.equal(400);
+                return {
+                    json: () => {
+                        done();
+                    }
+                }
+            }
+        });
+
+        mockedModule.getStudentByName({
+            params: {
+                name: "unknown"
+            }
+        }, responseWithDone);
     });
 
 });

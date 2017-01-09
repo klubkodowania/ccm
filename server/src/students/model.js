@@ -5,7 +5,10 @@ const studentSchema = new Schema({
     _id: String,
     name: String,
     password: String,
-    availableSemesters: Array
+    availableSemesters: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Semester'
+    }]
 });
 
 const Student = mongoose.model("Student", studentSchema);

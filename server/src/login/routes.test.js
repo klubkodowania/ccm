@@ -7,7 +7,7 @@ chai.use(chaiHttp);
 
 describe("Login - routes", ()=> {
 
-    let mockedModule = proxyquire("./checkLogin", {
+    let mockedModule = proxyquire("./login", {
         "../students/index": {
             getStudent: ({name, password}) => {
                 return name === "test" && password ==="test" ?

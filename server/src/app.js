@@ -7,6 +7,7 @@ db.connect();
 
 const login = require("./login");
 const students = require("./students");
+const semesters = require("./semesters");
 
 const app = express();
 

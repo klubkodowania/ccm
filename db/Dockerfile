@@ -1,3 +1,4 @@
 FROM mongo
 
-COPY ./seed.json /tmp/seed.json
+COPY ./students.json /tmp/students.json
+COPY ./semesters.json /tmp/semesters.json
