@@ -2,29 +2,15 @@ const chai = require("chai");
 const expect = chai.expect;
 const sinon = require("sinon");
 const proxyquire = require("proxyquire");
+const testUtils  = require("../tools/testUtils");
 
 describe("Students - getStudent", ()=> {
 
-    let response;
-    let send;
-    let json;
     let mockedModule;
+    let response;
 
     beforeEach(() => {
-        send = sinon.spy();
-        json = sinon.spy();
-
-        response = {
-            status: () => {},
-            json: sinon.spy()
-        };
-
-        sinon.stub(response, "status", () => {
-            return {
-                send,
-                json
-            };
-        });
+        response = testUtils.mockResponse().response;
 
         mockedModule = proxyquire("./getStudent", {
             "./model": {
@@ -41,7 +27,6 @@ describe("Students - getStudent", ()=> {
     });
 
     afterEach(() => {
-        send && send.restore && send.restore();
         response = {};
         mockedModule = {};
     });

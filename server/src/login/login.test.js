@@ -1,28 +1,20 @@
 const chai = require("chai");
 const sinon = require("sinon");
 const proxyquire = require("proxyquire");
+const testUtils  = require("../tools/testUtils");
 
 const expect = chai.expect;
 
 describe("Login - mockedModule", function() {
 
     let response;
-    let send;
     let mockedModule;
+    let send;
 
     beforeEach(() => {
-        send = sinon.spy();
-
-        response = {
-            status: () => {},
-            json: sinon.spy()
-        };
-
-        sinon.stub(response, "status", () => {
-            return {
-                send: send
-            };
-        });
+        const mockedResponse = testUtils.mockResponse();
+        response = mockedResponse.response;
+        send = mockedResponse.send;
 
         mockedModule = proxyquire("./login", {
             "../students/index": {
@@ -35,7 +27,6 @@ describe("Login - mockedModule", function() {
     });
 
     afterEach(() => {
-        send && send.restore && send.restore();
         response = {};
         mockedModule = {};
     });
@@ -46,7 +37,6 @@ describe("Login - mockedModule", function() {
                 name: "test"
             }
         }, response);
-
         expect(response.status.calledWith(401)).to.equal(true);
         expect(send.called).to.equal(true);
     });
