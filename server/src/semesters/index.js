@@ -1,5 +1,5 @@
-const {getSemester} = require("./controllers");
+const {Semester} = require("./model");
 
 module.exports = {
-    getSemester
+    Semester
 };

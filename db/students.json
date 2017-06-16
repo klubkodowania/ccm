@@ -1,0 +1,31 @@
+[
+    {
+        "_id": "83e63ffb-2fab-4bdb-a89f-7d6907ee4b11",
+        "name": "janek",
+        "password": "janek123",
+        "availableSemesters": [
+            "258ef1e3-292f-4405-ae0c-25376d7c6a80",
+            "2c62d7cb-0509-415f-8973-5747acd6590c",
+            "73ea7e1d-990a-401c-85ff-04546c5749cf",
+            "1702c6dd-47f3-4291-933c-764f8e0dd5af"
+        ]
+    },
+    {
+        "_id": "70a67219-af0a-436f-aaa4-4f8318fb7b89",
+        "name": "antek",
+        "password": "antek123",
+        "availableSemesters": [
+            "258ef1e3-292f-4405-ae0c-25376d7c6a80",
+            "1702c6dd-47f3-4291-933c-764f8e0dd5af"
+        ]
+    },
+    {
+        "_id": "0bf344f4-56e2-4b1b-a1f5-30d0a6a18db9",
+        "name": "hubert",
+        "password": "hubert123",
+        "availableSemesters": [
+            "2c62d7cb-0509-415f-8973-5747acd6590c",
+            "73ea7e1d-990a-401c-85ff-04546c5749cf"
+        ]
+    }
+]
