@@ -1,5 +1,8 @@
-const {Semester} = require("./model");
+const routes = require("express").Router();
+const semestersRoute = require("./routes");
+
+routes.use("/", semestersRoute);
 
 module.exports = {
-    Semester
+    routes
 };
