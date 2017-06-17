@@ -4,7 +4,7 @@ const sinon = require("sinon");
 const proxyquire = require("proxyquire");
 const testUtils  = require("../tools/testUtils");
 
-describe("Project - getProject", ()=> {
+describe("Project - addProject", ()=> {
 
     let mockedModule;
     let response;
@@ -12,10 +12,12 @@ describe("Project - getProject", ()=> {
     beforeEach(() => {
         response = testUtils.mockResponse().response;
 
-        mockedModule = proxyquire("./getProject", {
+        mockedModule = proxyquire("./addProject", {
             "./model": {
-                Project: {
-                    findOne: () => Promise.resolve("some response")
+                Project: function() {
+                    return {
+                        save: () => Promise.resolve("some response")
+                    }
                 }
             }
         });
@@ -27,20 +29,26 @@ describe("Project - getProject", ()=> {
         mockedModule = {};
     });
 
-    it("should get project by id and returns json if exists", function(done) {
+    it("should add project with properties and return status 201 and newly added project", function(done) {
         const responseWithDone = Object.assign({}, response, {
-            json: () => {
-                done();
+            status: (code) => {
+                expect(code).to.equal(201);
+
+                return {
+                    json: () => {
+                        done();
+                    }
+                }
             }
         });
-        mockedModule.getProjectById({
-            params: {
-                id: "test"
+        mockedModule.addProject({
+            body: {
+                title: "test project title"
             }
         }, responseWithDone);
     });
 
-    it("should send status 400 if project was not found", function(done) {
+    xit("should send status 400 if semester was not found", function(done) {
         mockedModule = proxyquire("./getProject", {
             "./model": {
                 Project: {
