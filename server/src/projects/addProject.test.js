@@ -48,11 +48,13 @@ describe("Project - addProject", ()=> {
         }, responseWithDone);
     });
 
-    xit("should send status 400 if semester was not found", function(done) {
-        mockedModule = proxyquire("./getProject", {
+    it("should send status 400 if project saving failed", function(done) {
+        mockedModule = proxyquire("./addProject", {
             "./model": {
-                Project: {
-                    findOne: () => Promise.reject("error")
+                Project: function() {
+                    return {
+                        save: () => Promise.resolve("some response")
+                    }
                 }
             }
         });
@@ -68,9 +70,9 @@ describe("Project - addProject", ()=> {
             }
         });
 
-        mockedModule.getProjectById({
+        mockedModule.addProject({
             params: {
-                id: "unknown"
+                title: "unknown"
             }
         }, responseWithDone);
     });

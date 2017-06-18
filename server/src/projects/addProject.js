@@ -1,9 +1,11 @@
+const uuid = require("node-uuid");
 const {Project} = require("./model");
 
 function addProject(req, res) {
     console.log("Adding project with properties: " + JSON.stringify(req.body, 2));
 
     const project = new Project(req.body);
+    project._id = uuid();
 
     project
         .save()
