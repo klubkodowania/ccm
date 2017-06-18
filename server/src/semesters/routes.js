@@ -1,6 +1,6 @@
 const routes = require("express").Router();
 const {getSemesterById} = require("./getSemester");
 
-routes.get("/semester/:id", getSemesterById);
+routes.get("/:id", getSemesterById);
 
 module.exports = routes;
