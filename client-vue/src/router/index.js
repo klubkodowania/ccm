@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Semesters from '../components/Semesters';
-import Semester from '../components/Semester';
+import Semesters from '../components/semesters/Semesters';
+import Semester from '../components/semester/Semester';
 
 Vue.use(Router);
 
