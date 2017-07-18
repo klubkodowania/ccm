@@ -14,8 +14,8 @@
     </md-card-area>
 
     <md-card-actions>
-      <md-button class="  md-secondary">Materiały</md-button>
-      <md-button class="  md-primary">Instrukcja</md-button>
+      <md-button class="md-secondary">Materiały</md-button>
+      <md-button class="md-primary" href="#/project/project-name">Instrukcja</md-button>
     </md-card-actions>
   </md-card>
 </template>
