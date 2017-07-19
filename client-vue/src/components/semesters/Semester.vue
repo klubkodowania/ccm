@@ -8,14 +8,16 @@
       </md-card-media>
 
       <md-card-header>
-        <div class="md-title">Scratch 1</div>
-        <div class="md-subhead">Pierwszy semestr nauki programowania w Scratchu</div>
+        <div class="md-title">
+          {{semester.title}}
+        </div>
+        <div class="md-subhead">
+          {{semester.summary}}
+        </div>
       </md-card-header>
 
       <md-card-content>
-        W pierwszym semestrze znajdziesz 8 projektów, podczas których poznasz podstawy
-        Scratcha, dowiesz się czym są duszki, skrypty, kostiumy, do czego służą zmienne
-        i jak napisać swoją pierwszą grę.
+        {{semester.description}}
       </md-card-content>
     </md-card-area>
 
@@ -28,10 +30,6 @@
 <script>
   export default {
     name: 'semester',
-    data() {
-      return {
-        msg: 'Welcome to Your Vue.js App',
-      };
-    },
+    props: ['semester'],
   };
 </script>

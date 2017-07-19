@@ -10,7 +10,8 @@
 
     <md-layout :md-gutter="24">
 
-      <semester v-for="semester of semesters"/>
+      <semester v-if="semesters.length > 0" v-for="semester of semesters" :semester="semester" />
+      <md-spinner md-indeterminate v-else="semesters.length === 0"/>
 
     </md-layout>
 
@@ -19,15 +20,22 @@
 
 <script>
   import Semester from './Semester';
+  import getSemesters from './model';
 
   export default {
     components: {
       semester: Semester,
     },
     name: 'semesters',
+    created() {
+      getSemesters()
+        .then((semesters) => {
+          this.semesters = semesters;
+        });
+    },
     data() {
       return {
-        semesters: [1, 2, 3, 4],
+        semesters: [],
       };
     },
   };

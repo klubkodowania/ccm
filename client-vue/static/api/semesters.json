@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "title": "Scratch 1",
+    "summary": "Pierwszy semestr nauki programowania w Scratchu",
+    "description": "W pierwszym semestrze znajdziesz 8 projektów, podczas których poznasz podstawy Scratcha, dowiesz się czym są duszki, skrypty, kostiumy, do czego służą zmienne i jak napisać swoją pierwszą grę."
+  },
+  {
+    "id": 2,
+    "title": "Scratch 2",
+    "summary": "Pierwszy semestr nauki programowania w Scratchu",
+    "description": "W pierwszym semestrze znajdziesz 8 projektów, podczas których poznasz podstawy Scratcha, dowiesz się czym są duszki, skrypty, kostiumy, do czego służą zmienne i jak napisać swoją pierwszą grę."
+  }
+]
