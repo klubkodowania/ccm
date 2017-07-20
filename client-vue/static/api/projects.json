@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "semesterId": 1,
+    "title": "Some random title 1"
+  },
+  {
+    "id": 2,
+    "semesterId": 2,
+    "title": "Some random title 2"
+  },
+  {
+    "id": 3,
+    "semesterId": 1,
+    "title": "Some random title 3"
+  },
+  {
+    "id": 4,
+    "semesterId": 2,
+    "title": "Some random title 4"
+  },
+  {
+    "id": 5,
+    "semesterId": 1,
+    "title": "Some random title 5"
+  }
+]

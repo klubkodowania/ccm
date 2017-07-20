@@ -22,7 +22,7 @@
     </md-card-area>
 
     <md-card-actions>
-      <md-button class="md-primary" href="#/semester/scratch-1">Zobacz projekty</md-button>
+      <md-button class="md-primary" :href="'#/projects/' + semester.id">Zobacz projekty</md-button>
     </md-card-actions>
   </md-card>
 </template>

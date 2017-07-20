@@ -8,22 +8,30 @@
       zobaczyć instrukcję dla wybranego projektu.
     </p>
 
-    <project v-for="project of projects" />
+    <project v-if="projects.length > 0" v-for="project of projects" :project="project"/>
+    <md-spinner md-indeterminate v-else="projects.length === 0"/>
 
   </md-layout>
 </template>
 
 <script>
   import Project from './Project';
+  import getProjects from './model';
 
   export default {
     components: {
       project: Project,
     },
-    name: 'Semester',
+    name: 'Projects',
+    created() {
+      getProjects()
+        .then((projects) => {
+          this.projects = projects.filter(p => p.semesterId === 1);
+        });
+    },
     data() {
       return {
-        projects: [1, 2, 3, 4, 5, 6, 7],
+        projects: [],
       };
     },
   };

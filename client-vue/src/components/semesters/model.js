@@ -10,7 +10,7 @@ export default function getSemesters() {
 }
 
 function getSemestersFromStore() {
-  return Promise.resolve(semesters);
+  return Promise.resolve([...semesters]);
 }
 
 function fetchSemesters() {
@@ -19,5 +19,5 @@ function fetchSemesters() {
 
 function storeSemesters(fetchedSemesters) {
   semesters = fetchedSemesters.data;
-  return semesters;
+  return getSemestersFromStore();
 }

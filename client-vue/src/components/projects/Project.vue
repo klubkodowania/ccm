@@ -8,7 +8,10 @@
       </md-card-media>
 
       <md-card-header>
-        <h3 class="md-title"><md-icon class="check-icon">check_circle</md-icon> Robot gaduła</h3>
+        <h3 class="md-title">
+          <md-icon class="check-icon">check_circle</md-icon>
+          {{project.title}}
+        </h3>
       </md-card-header>
 
     </md-card-area>
@@ -23,6 +26,7 @@
 <script>
   export default {
     name: 'project',
+    props: ['project'],
     data() {
       return {
         msg: 'Welcome to Your Vue.js App',
