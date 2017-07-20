@@ -1,36 +1,45 @@
 <template>
   <md-layout md-row class="content">
 
-    <h1 class="md-display-2">Scratch 1 - projekty</h1>
+    <h1 class="md-display-2">{{semester.title}} - projekty</h1>
 
     <p class="md-headline">
-      Poniżej znajduje się lista wszystkich projektów dostępnych w ramach tego semestru. Kliknij, aby
-      zobaczyć instrukcję dla wybranego projektu.
+      {{semester.description}}
     </p>
 
-    <project v-if="projects.length > 0" v-for="project of projects" :project="project"/>
+    <project-card v-if="projects.length > 0" v-for="project of projects" :project="project"/>
     <md-spinner md-indeterminate v-else="projects.length === 0"/>
 
   </md-layout>
 </template>
 
 <script>
-  import Project from './Project';
+  import ProjectCard from './ProjectCard';
   import getProjects from './model';
+  import getSemester from '../semesters/model';
 
   export default {
     components: {
-      project: Project,
+      'project-card': ProjectCard,
     },
+    props: ['name'],
     name: 'Projects',
     created() {
       getProjects()
         .then((projects) => {
-          this.projects = projects.filter(p => p.semesterId === 1);
+          this.projects = projects.filter(p =>
+            p.semesterId.toString().toLowerCase() === this.name.toString().toLowerCase());
+        });
+
+      getSemester()
+        .then((semesters) => {
+          this.semester = semesters.find(s =>
+            s.id.toString().toLowerCase() === this.name.toString().toLowerCase());
         });
     },
     data() {
       return {
+        semester: {},
         projects: [],
       };
     },

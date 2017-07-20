@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Semesters from '../components/semesters/Semesters';
 import Projects from '../components/projects/Projects';
-import Project from '../components/project/Project';
+import ProjectView from '../components/projects/ProjectView';
 
 Vue.use(Router);
 
@@ -17,11 +17,13 @@ export default new Router({
       path: '/projects/:name',
       name: 'Projects',
       component: Projects,
+      props: true,
     },
     {
-      path: '/project/:name',
-      name: 'Project',
-      component: Project,
+      path: '/project/:id',
+      name: 'ProjectView',
+      component: ProjectView,
+      props: true,
     },
   ],
 });
